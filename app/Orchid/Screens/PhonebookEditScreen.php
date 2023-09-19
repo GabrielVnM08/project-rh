@@ -41,7 +41,7 @@ class PhonebookEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return $this->phonebook->exists ? 'Edit Phonebook Entry' : 'Creating a New Phonebook Entry';
+        return $this->phonebook->exists ? 'Editar contato' : 'Adicionar contato a lista telefônica';
     }
 
     /**
@@ -49,7 +49,7 @@ class PhonebookEditScreen extends Screen
      */
     public function description(): ?string
     {
-        return "Phonebook Entries";
+        return "Lista Telefônica";
     }
 
     /**
@@ -60,17 +60,17 @@ class PhonebookEditScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Button::make('Create Entry')
+            Button::make('Criar')
                 ->icon('pencil')
                 ->method('createOrUpdate')
                 ->canSee(!$this->phonebook->exists),
 
-            Button::make('Update')
+            Button::make('Editar')
                 ->icon('note')
                 ->method('createOrUpdate')
                 ->canSee($this->phonebook->exists),
 
-            Button::make('Remove')
+            Button::make('Remover')
                 ->icon('trash')
                 ->method('remove')
                 ->canSee($this->phonebook->exists),
@@ -87,19 +87,20 @@ class PhonebookEditScreen extends Screen
         return [
             Layout::rows([
                 Input::make('phonebook.name')
-                    ->title('Name')
-                    ->placeholder('Enter name')
-                    ->help('Specify the name for this phonebook entry.'),
+                    ->title('Nome')
+                    ->placeholder('Insira o nome')
+                    ->help('Especifique o nome para o contato.'),
 
                 Input::make('phonebook.email')
                     ->title('Email')
-                    ->placeholder('Enter email')
-                    ->help('Specify the email for this phonebook entry.'),
+                    ->placeholder('exemplo@exemplo.com')
+                    ->help('Especifique o email para o contato.'),
 
                 Input::make('phonebook.phone')
-                    ->title('Phone')
-                    ->placeholder('Enter phone number')
-                    ->help('Specify the phone number for this phonebook entry.'),
+                    ->title('Telefone')
+                    ->placeholder('00000000000')
+                    ->help('Especifique o telefone para o contato.')
+                    ->maxlength(11),
 
                 Relation::make('phonebook.author')
                     ->title('Author')

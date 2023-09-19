@@ -26,7 +26,7 @@ class PhonebookListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Phonebook Entries';
+        return 'Lista Telefônica';
     }
 
     /**
@@ -34,7 +34,7 @@ class PhonebookListScreen extends Screen
      */
     public function description(): ?string
     {
-        return "All phonebook entries";
+        return "Todas as entradas da lista";
     }
 
     /**
@@ -45,7 +45,7 @@ class PhonebookListScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Link::make('Create New Entry')
+            Link::make('Criar nova entrada')
                 ->icon('pencil')
                 ->route('platform.phonebook.edit')
         ];

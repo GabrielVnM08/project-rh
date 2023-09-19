@@ -39,10 +39,10 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Cadastros')
                 ->icon('journal-arrow-down')
                 ->list([
-                    Menu::make('Cadastro Alunos')
+                    Menu::make('Alunos')
                         ->icon('journal-bookmark')
                         ->sort(0),
-                    Menu::make('Cadastro Professores')
+                    Menu::make('Professores')
                         ->icon('journal-bookmark')
                         ->sort(1),
                 ]),
@@ -51,18 +51,6 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('journal-bookmark')
                 ->title('Tools')
                 ->route('platform.phonebook.list'),
-
-            Menu::make('Cadastros')
-                ->icon('journal-bookmark'),
-                //->route('platform.phonebook.list'),
-
-            Menu::make('Avaliações')
-                ->icon('journal-bookmark'),
-                //->route('platform.phonebook.list'),
-
-            Menu::make('Relatórios')
-                ->icon('journal-bookmark'),
-                //->route('platform.phonebook.list'),
 
             Menu::make('Get Started')
                 ->icon('bs.book')
